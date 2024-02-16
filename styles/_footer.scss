@@ -1,0 +1,171 @@
+@import "_functions.scss";
+
+%footer-title {
+  @include adaptiveValue("font-size", 28, 24);
+  font-weight: 700;
+  line-height: 120%;
+}
+
+%footer-item {
+  @include adaptiveValue("font-size", 18, 16);
+  font-weight: 500;
+  line-height: 120%;
+}
+
+.footer {
+  color: $liteColor;
+  background-color: $darkColor;
+
+  &__body {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    @include adaptiveValue("gap", 30, 15);
+    flex-wrap: wrap;
+
+    @media (max-width: toEm(575)) {
+      justify-content: center;
+    }
+
+    &:not(:last-child) {
+      @include adaptiveValue("margin-bottom", 50, 25)
+    }
+
+  }
+
+  &__download {
+    flex: 0 0 35%;
+
+    @media (max-width: toEm(991)) {
+      flex: 0 0 auto;
+    }
+  }
+
+  &__copy {
+    font-weight: 700;
+    font-size: toRem(18);
+    line-height: 2;
+    text-align: center;
+    color: #fff;
+    @include adaptiveValue("padding-top", 37, 16);
+    @include adaptiveValue("padding-bottom", 50, 25);
+  }
+}
+
+.menu-footer {
+  @include adaptiveValue("padding-top", 85, 30);
+  @include adaptiveValue("padding-left", 85, 0, 0, $containerWidth, 768);
+  @include adaptiveValue("padding-left", 85, 0, 0, $containerWidth, 768);
+
+  display: flex;
+  flex-wrap: wrap;
+  @include adaptiveValue("row-gap", 30, 15);
+  @include adaptiveValue("margin-bottom", 30, 20);
+
+
+  &__title {
+    @extend %footer-title;
+    @include adaptiveValue("margin-bottom", 40, 10)
+  }
+
+  &__item {
+    @extend %footer-item;
+
+    &:not(:last-child) {
+      @include adaptiveValue("margin-bottom", 25, 15)
+    }
+  }
+
+  &__block {
+    flex: 1 1 20.9%;
+    padding-right: toRem(30);
+
+    &:nth-child(4n),
+    &:last-child {
+      padding-right: toRem(0);
+      flex: 1 1 37.2641%;
+    }
+
+    @media (max-width: toEm(768)) {
+      flex: 1 1 50%;
+      text-align: center;
+      &:nth-child(3n),
+      &:last-child {
+        flex: 1 1 50%;
+      }
+    }
+
+    @media (max-width: toEm(420)) {
+      flex: 1 1 100%;
+      padding-right: toRem(0);
+      &:nth-child(4n),
+      &:last-child {
+        flex: 1 1 100%;
+      }
+    }
+  }
+}
+
+.social-footer {
+
+  &__list {
+    display: flex;
+    align-items: center;
+    gap: toRem(10)
+  }
+
+  &__link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: toRem(37);
+    height: toRem(37);
+    border-radius: toRem(8);
+    color: $darkColor;
+    background-color: $whiteColor;
+    transition: all 0.3s;
+
+    @media (any-hover: hover) {
+      &:hover {
+        background-color: $purpleColor;
+        color: #fff;
+      }
+    }
+  }
+}
+
+.download-apps {
+  > *:not(:last-child) {
+    @include adaptiveValue("margin-bottom", 25, 15);
+  }
+
+  &__title {
+    @extend %footer-title;
+    line-height: 2.1;
+    color: $liteColor;
+
+    @media (max-width: toEm(575)) {
+      text-align: center;
+    }
+  }
+
+  &__items {
+    display: flex;
+    @include adaptiveValue("gap", 21, 15);
+    flex-wrap: wrap;
+
+    @media (max-width: toEm(575)) {
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+}
+
+.popular-categories {
+  border-top: toRem(1) solid $borderColor;
+  border-bottom: toRem(1) solid $borderColor;
+  @include adaptiveValue("padding-top", 20, 10);
+  @include adaptiveValue("padding-bottom", 20, 10);
+  @include adaptiveValue("padding-left", 85, 0, 0, $containerWidth, 768);
+  @include adaptiveValue("padding-right", 85, 0, 0, $containerWidth, 768);
+}
