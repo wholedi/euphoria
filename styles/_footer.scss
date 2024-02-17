@@ -1,4 +1,3 @@
-@import "_functions.scss";
 
 %footer-title {
   @include adaptiveValue("font-size", 28, 24);
@@ -181,30 +180,37 @@
     gap: toRem(20);
     width: 100%;
     transition: all 0.3s;
+
     &::before {
       transition: all 0.3s;
       position: relative;
       @include adaptiveValue("font-size", 15, 12);
       top: toEm(11, 15);
+
       .active & {
         transform: rotate(-180deg);
       }
     }
+
     @media (any-hover: hover) {
       &:hover {
         color: #666;
       }
     }
   }
+
   &__body {
     @include adaptiveValue("padding-top", 40, 10);
   }
+
   &__item {
     @extend %footer-item;
+
     &:not(:last-child) {
       @include adaptiveValue("margin-bottom", 25, 5);
     }
   }
+
   &__link {
     @media (any-hover: hover) {
       &:hover {
