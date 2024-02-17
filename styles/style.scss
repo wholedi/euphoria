@@ -41,6 +41,8 @@ $redColor: #FF0000FF;
 @import "_header.scss";
 // footer
 @import "_footer.scss";
+// home
+@import "_home.scss";
 
 body {
   font-family: "Causten", sans-serif;
@@ -68,4 +70,20 @@ body {
   padding-left: toRem(15);
   padding-right: toRem(15);
 }
+
+.page {
+
+  &__hero {
+    @include adaptiveValue("margin-bottom", 130, 40);
+  }
+
+  &__deals {
+    @include adaptiveValue("margin-bottom", 100, 40);
+  }
+
+  &__new {
+    @include adaptiveValue("margin-bottom", 95, 40);
+  }
+}
+
 
