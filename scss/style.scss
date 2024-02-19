@@ -15,17 +15,8 @@ $containerWidth: $maxWidthContainer + $containerPadding;
 // Кольори
 $mainColor: #807d7e;
 $darkColor: #3c4242;
-$purpleColor: #8a33fd;
+$purplColor: #8a33fd;
 $liteColor: #f6f6f6;
-$whiteColor: #ffff;
-$darkOpacity: rgba(102, 32, 193, 0.03);
-$borderColor: #bebcbd;
-$darkPurple: #6620c1;
-$disabledColor: #807d7e;
-$disabledColorBg: #eaeaea;
-$boxShadow: rgba(0, 0, 0, 0.1);
-$blackColor: rgba(0, 0, 0, 1);
-$redColor: #FF0000FF;
 
 // Функції
 @import "_functions.scss";
@@ -37,16 +28,19 @@ $redColor: #FF0000FF;
 @import "_reset.scss";
 // Компоненти
 @import "_common.scss";
-// header
 @import "_header.scss";
-// footer
 @import "_footer.scss";
-// home
-@import "_home.scss";
+@import "_nouislider.scss";
 
 body {
   font-family: "Causten", sans-serif;
   color: $mainColor;
+
+  &.menu-open {
+    overflow: hidden;
+    touch-action: none;
+    overscroll-behavior: none;
+  }
 }
 
 .wrapper {
@@ -54,13 +48,12 @@ body {
   display: flex;
   flex-direction: column;
   min-height: 100%;
-
   @media (max-width: toEm(540)) {
-    padding-bottom: toRem(49);
+    padding-bottom: toRem(75);
   }
 }
 
-.wrapper main {
+.wrapper > main {
   flex-grow: 1;
 }
 
@@ -72,7 +65,6 @@ body {
 }
 
 .page {
-
   &__hero {
     @include adaptiveValue("margin-bottom", 130, 40);
   }
@@ -84,6 +76,30 @@ body {
   &__new {
     @include adaptiveValue("margin-bottom", 95, 40);
   }
+
+  &__sale {
+    @include adaptiveValue("margin-bottom", 100, 40);
+  }
+
+  &__shop-now {
+    @include adaptiveValue("margin-bottom", 100, 40);
+  }
+
+  &__top-brands {
+    @include adaptiveValue("margin-bottom", 75, 40);
+  }
+
+  &__products {
+    @include adaptiveValue("margin-bottom", 100, 40);
+  }
+
+  &__reviews {
+    @include adaptiveValue("margin-bottom", 100, 40);
+  }
+
 }
 
+// Сторінки
+@import "_home.scss";
+@import "_product.scss";
 
